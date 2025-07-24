@@ -1,0 +1,26 @@
+# Use the latest CUDA 12 runtime as base image
+FROM nvidia/cuda:12.3.1-devel-ubuntu22.04
+
+# Set the working directory in the container
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y \
+    ffmpeg \
+    build-essential \
+    python3 \
+    python3-pip \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN python3 -m pip install --upgrade pip
+
+COPY . /app
+
+# requirements 설치
+RUN pip install -r repo_requirements.txt
+
+# PyTorch 설치 (CUDA 12.1용)
+RUN pip install torch torchvision torchaudio \
+    --index-url https://download.pytorch.org/whl/cu121
+
+# 모델 다운로드
+RUN python3 model_downloader.py

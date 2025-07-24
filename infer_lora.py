@@ -50,6 +50,7 @@ def run_one_case(pipe,
     if input_reference_image is not None:
         input_reference_image = Image.open(io.BytesIO(FS.get_object(input_reference_image)))
         input_reference_image = pillow_convert(input_reference_image, "RGB")
+        print("input_reference_image type:", type(input_reference_image))
 
     image, seed = pipe(
         reference_image=input_reference_image,
@@ -206,7 +207,7 @@ def run():
             local_path, seed = run_one_case(pipe, **example)
 
     else:
-        assert cfg.args.task_type.upper() in task_model_cfg
+        assert cfg.args.task_type.upper() in task_model_cfg.MODEL
         params = {
             "input_image": cfg.args.input_image,
             "input_mask": cfg.args.input_mask,
