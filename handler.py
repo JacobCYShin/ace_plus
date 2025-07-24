@@ -3,6 +3,8 @@ import os
 import uuid
 import subprocess
 
+hf_token = os.getenv("HF_TOKEN")  # RunPod Secret ENV로부터
+
 def handler(event):
     instruction = event["input"]["instruction"]
     input_image_path = event["input"]["input_reference_image"]  # e.g., /tmp/input.jpg
