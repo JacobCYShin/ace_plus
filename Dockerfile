@@ -1,6 +1,10 @@
 # Use the latest CUDA 12 runtime as base image
 FROM nvidia/cuda:12.3.1-devel-ubuntu22.04
 
+# Dockerfile
+ARG HF_TOKEN
+ENV HUGGINGFACE_HUB_TOKEN=$HF_TOKEN
+
 # Set the working directory in the container
 WORKDIR /app
 
