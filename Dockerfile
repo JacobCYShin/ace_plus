@@ -29,11 +29,5 @@ RUN pip install -r repo_requirements.txt
 RUN pip install torch==2.5.1+cu121 torchvision==0.20.1+cu121 torchaudio==2.5.1+cu121 \
     --index-url https://download.pytorch.org/whl/cu121
 
-# RunPod serverless handler 설치
-RUN pip install runpod
-
-# 모델 다운로드
-RUN python3 model_downloader.py
-
 # 서버리스 entrypoint 지정
 ENTRYPOINT ["python3", "handler.py"]
