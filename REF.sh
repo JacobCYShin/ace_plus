@@ -1,4 +1,4 @@
-python infer_lora.py \
+python3 infer_lora.py \
   --instruction "A smiling girl in a neat police uniform, wearing a badge." \
   --input_reference_image assets/samples/portrait/human_1.jpg \
   --task_type portrait \

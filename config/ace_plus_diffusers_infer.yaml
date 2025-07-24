@@ -22,4 +22,4 @@ DEFAULT_PARAS:
     IMAGES:
     SEED:
 MODEL:
-  PRETRAINED_MODEL: /workspace/models/flux-fill
+  PRETRAINED_MODEL: /app/models/flux-fill
