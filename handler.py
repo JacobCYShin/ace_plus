@@ -16,8 +16,6 @@ def download_model():
         ignore_patterns=["*.safetensors"]
     )
 
-download_model()  # 서버 시작 시 한 번만 다운로드
-
 # 🔽 요청 처리 함수
 def handler(event):
     instruction = event["input"]["instruction"]
@@ -51,6 +49,8 @@ def handler(event):
     return {
         "output_image": image_base64
     }
+
+download_model()  # 서버 시작 시 한 번만 다운로드
 
 # ✅ RunPod 서버리스 시작 지점
 runpod.serverless.start({"handler": handler})
