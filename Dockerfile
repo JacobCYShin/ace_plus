@@ -22,7 +22,7 @@ RUN python3 -m pip install --upgrade pip
 # 코드 복사
 COPY . /app
 
-RUN python3 model_downloader.py
+# RUN python3 model_downloader.py
 
 # requirements 설치
 RUN pip install -r repo_requirements.txt
