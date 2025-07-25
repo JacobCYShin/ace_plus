@@ -6,3 +6,5 @@ models/
 *.png
 *.jpg
 *.safetensors
+
+*.ipynb
