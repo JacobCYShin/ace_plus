@@ -1,6 +1,4 @@
 .idea
-models/
-
 
 *.pth
 *.png
